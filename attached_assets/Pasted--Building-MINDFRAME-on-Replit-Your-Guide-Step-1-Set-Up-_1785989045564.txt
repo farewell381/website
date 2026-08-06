@@ -1,0 +1,116 @@
+# Building MINDFRAME on Replit — Your Guide
+
+## Step 1: Set Up the Right Kind of Repl
+
+1. Go to your Replit dashboard (or the app you already have: `mindframe-builder`)
+2. If starting fresh: Click **"Create App"** (or "+") → choose **"Agent"** as the build mode (not a blank template) → this lets you describe what to build and Replit's AI does the setup itself
+3. If using your existing `mindframe-builder` repl: open it, find the **Agent** tab/chat panel (usually on the right side or a chat icon)
+
+---
+
+## Step 2: Paste This Prompt to Replit's Agent
+
+Copy everything in the box below and paste it as your first message to the Agent:
+
+```
+Build a Next.js 14 (App Router) + TypeScript + Tailwind CSS web app called MINDFRAME —
+a noir-themed detective game that teaches critical thinking by having players solve
+murder mysteries through spotting cognitive biases and logical fallacies in suspect
+statements.
+
+TECH STACK:
+- Next.js 14 App Router, TypeScript, Tailwind CSS
+- State: zustand with persist middleware (localStorage)
+- No backend — all game data lives in typed TypeScript data files
+
+DESIGN TOKENS (use these exactly):
+- Background: #0B0F14 (noir dark)
+- Card background: #11161D (ink)
+- Primary accent: #F5B841 (amber) — used for XP, highlights, headers
+- Secondary accent: #4DE1C1 (neon teal) — correct answers
+- Error/alert: #E4572E
+- Muted text: #8FA3B8
+- Font: monospace for UI/headers, uppercase tracking-widest for titles
+
+CORE GAMEPLAY LOOP:
+1. Landing page → "Enter the City" button → /city
+2. City hub page showing player XP and a grid of districts (Crime Scene unlocked by
+   default, others show as locked with a lock icon)
+3. Crime Scene district (/cases) → grid of murder case cards (title, difficulty,
+   genre, XP reward, synopsis, suspect/clue counts)
+4. Clicking a case opens /cases/[id] — a two-panel investigation screen:
+   LEFT/CENTER: "Conspiracy Board" — suspect statements listed in a sidebar, draggable
+   onto a center corkboard area. Each dropped statement can be tagged with fallacies
+   and biases via an expandable checkbox list. A right panel lists suspects to accuse
+   and an "Accuse & Submit" button.
+   RIGHT: Sidebar showing case overview (victim bio, synopsis), clues (some marked as
+   red herrings), suspects with alibis and statements, and a fallacy/bias reference
+   list — all in collapsible sections.
+5. On accusation, score the investigation:
+   - 60% of case XP for correct suspect
+   - 40% scaled by % of ground-truth fallacies/biases correctly tagged (only tags on
+     statements that actually contain that fallacy/bias count — no credit for
+     over-tagging)
+   - Show a results panel: correct/wrong, accuracy %, XP earned, missed
+     fallacies/biases with definitions, and the full solution explanation
+6. XP and completed case IDs persist in localStorage via zustand. Returning to the
+   city hub reflects updated XP.
+
+DATA TO INCLUDE:
+- 5 full murder cases, each with: id, title, genre, difficulty (1-3), synopsis,
+  victim bio, 3 clues (one a red herring), 3 suspects each with an alibi and 2
+  statements. Each statement should contain ONE clear fallacy or bias baked into its
+  wording (not just labeled — the statement text itself should demonstrate the
+  fallacy, e.g. a false-dilemma statement literally presents only two options).
+- 8 logical fallacies and 6 cognitive biases as a reference taxonomy (id, name, short
+  definition), used for tagging.
+
+BUILD RULES:
+- Build and run it immediately after every major step — don't wait until the end to
+  test.
+- No 3D/Three.js for now — keep the city hub as a simple 2D grid of district cards.
+  This can be added later once the core loop works.
+- Zero unnecessary dependencies — just next, react, zustand, tailwindcss.
+- Give me a live preview link after each milestone so I can check it as we go.
+
+Start with the landing page, city hub, and case list first. Show me those working
+before building the full investigation board.
+```
+
+---
+
+## Step 3: Let It Build, Then Check In
+
+Replit Agent will:
+- Set up the project
+- Install dependencies automatically (no `npm install` typing needed — this is the big advantage over local)
+- Show you a live preview as it builds
+
+**After each milestone, actually click around the preview** before saying "continue" — same principle as our session plan, just automated on Replit's side.
+
+---
+
+## Step 4: If Something Looks Wrong
+
+Just describe it in plain language to the Agent, like:
+> "The city hub background isn't dark, it's white. Fix it to match the noir theme."
+
+You don't need to know the technical fix — that's the Agent's job.
+
+---
+
+## A Few Honest Notes
+
+- **Replit's free tier has its own usage caps** (separate from Claude's) — if the Agent stops mid-build saying you're out of credits, that's Replit's limit, not a bug. Wait for it to reset, same idea as before.
+- **This will NOT be connected to the local project we built together** — it's a fresh, separate build on Replit's servers. That's fine, just know it's a clean start there.
+- Replit's free tier can also **host the live site automatically** — no separate Vercel deploy step needed, which is one less thing for you to manage.
+
+---
+
+## If You Want Both Versions to Match
+
+Since you already have working code and content (the 2 cases, the scoring logic, the components) from our local build, you can tell Replit's Agent:
+
+> "Here's my existing case data structure and scoring logic, use this instead of generating new content: [paste lib/data/cases.ts and lib/utils/caseScoring.ts contents]"
+
+That saves the Agent from reinventing what already works.
