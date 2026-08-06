@@ -25,6 +25,8 @@ Build one phase at a time. Do not start a later phase until it is explicitly req
 
 ### Phase 2 — Bias District
 
+Complete.
+
 - Bias district grid with 30 cognitive-bias buildings
 - Bias detail pages with definitions and detective-context examples
 - Interactive scenario with choices and feedback

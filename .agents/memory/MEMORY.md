@@ -1,0 +1,1 @@
+- [Mindframe learning progress](mindframe-learning-progress.md) — keep educational district completion separate from case progress so future phases can award XP independently.
