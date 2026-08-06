@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Mindframe"
+description = "A noir detective game that teaches critical thinking by having players investigate murder cases, inspect suspect statements, and identify cognitive biases and logical fallacies."
+version = "1.0.0"
+id = "artifacts/mindframe"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18950
+
+[services.development]
+run = "pnpm --filter @workspace/mindframe run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/mindframe", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/mindframe/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18950"
+BASE_PATH = "/"
