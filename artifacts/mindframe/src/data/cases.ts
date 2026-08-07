@@ -42,7 +42,7 @@ export const cases: CaseFile[] = [
     { id: 'grease', type: 'TRACE', title: 'Grease on the brake', detail: 'The maintenance grease is fresh, and only one worker has access after midnight.' },
     { id: 'coat', type: 'TEXTILE', title: 'Blue wool thread', detail: 'The thread is from a uniform, not a passenger’s overcoat.' },
   ] },
-  { id: 'quiet-archive', title: 'The Quiet Archive', location: 'Municipal Records', victim: 'Agnes Wren', date: 'March 17, 1988', difficulty: 'Expert', xp: 340, unlocked: false, synopsis: 'A city archivist dies among the records she was protecting. Someone has rearranged the past to hide a present debt.', accusation: 'rhea', suspects: [
+  { id: 'quiet-archive', title: 'The Quiet Archive', location: 'Municipal Records', victim: 'Agnes Wren', date: 'March 17, 1988', difficulty: 'Expert', xp: 340, unlocked: false, synopsis: 'A Vantage City archivist dies among the records she was protecting. Someone has rearranged the past to hide a present debt.', accusation: 'rhea', suspects: [
     { id: 'rhea', name: 'Rhea Finch', role: 'Deputy archivist', statement: 'Agnes opposed the renovation. Since everyone who opposed it has been difficult, her resistance tells us exactly what kind of person she was.', tags: ['Hasty Generalization'] },
     { id: 'gale', name: 'Gale Voss', role: 'Contractor', statement: 'The mayor approved the demolition plans. Unless the mayor is secretly incompetent, the plans must be safe.', tags: ['Appeal to Authority'] },
     { id: 'elin', name: 'Elin Wren', role: 'Daughter', statement: 'Rhea keeps mentioning missing files because she wants you to look there. That is proof she is hiding something.', tags: ['Confirmation Bias'] },

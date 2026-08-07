@@ -16,7 +16,7 @@ export function Shell({ children }: { children: React.ReactNode }) {
       <Link href="/district/biases" className={`mf-nav-link ${active === 'biases' ? 'active' : ''}`} data-testid="link-biases"><Brain /><span>Bias district</span></Link>
       <Link href="/district/fallacies" className={`mf-nav-link ${active === 'fallacies' ? 'active' : ''}`} data-testid="link-fallacies"><Scale /><span>Fallacy district</span></Link>
     </nav><div className="mf-rail-note">Late shift<br /><strong>Open investigation</strong></div></aside>
-    <main className="mf-main"><header className="mf-topbar"><div className="mf-breadcrumb"><strong>Mindframe</strong> / {active === 'city' ? 'City desk' : active === 'biases' ? 'Bias district' : active === 'fallacies' ? 'Fallacy district' : 'Case files'}</div><XpBadge /></header>{children}</main>
+    <main className="mf-main"><header className="mf-topbar"><div className="mf-breadcrumb"><strong>Mindframe</strong> / {active === 'city' ? 'Vantage City desk' : active === 'biases' ? 'Bias district' : active === 'fallacies' ? 'Fallacy district' : 'Case files'}</div><XpBadge /></header>{children}</main>
   </div>;
 }
 
