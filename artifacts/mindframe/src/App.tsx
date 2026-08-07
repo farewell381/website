@@ -8,6 +8,8 @@ import Cases from '@/pages/Cases';
 import Investigation from '@/pages/Investigation';
 import Biases from '@/pages/Biases';
 import BiasDetail from '@/pages/BiasDetail';
+import Fallacies from '@/pages/Fallacies';
+import FallacyDetail from '@/pages/FallacyDetail';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +21,8 @@ function Router() {
     <Route path="/cases/:id" component={Investigation} />
     <Route path="/district/biases" component={Biases} />
     <Route path="/district/biases/:id" component={BiasDetail} />
+    <Route path="/district/fallacies" component={Fallacies} />
+    <Route path="/district/fallacies/:id" component={FallacyDetail} />
     <Route component={NotFound} />
   </Switch>;
 }

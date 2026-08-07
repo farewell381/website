@@ -1,4 +1,4 @@
-import { BookOpen, Brain, Building2, Compass, Crosshair, FileText, Gem } from 'lucide-react';
+import { BookOpen, Brain, Building2, Compass, Crosshair, FileText, Gem, Scale } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { useMemo } from 'react';
 
@@ -8,14 +8,15 @@ export function Brand() {
 
 export function Shell({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
-  const active = useMemo(() => location === '/' ? 'home' : location.startsWith('/cases') ? 'cases' : location.startsWith('/district/biases') ? 'biases' : location.startsWith('/city') ? 'city' : 'cases', [location]);
+  const active = useMemo(() => location === '/' ? 'home' : location.startsWith('/cases') ? 'cases' : location.startsWith('/district/biases') ? 'biases' : location.startsWith('/district/fallacies') ? 'fallacies' : location.startsWith('/city') ? 'city' : 'cases', [location]);
   return <div className="mf-shell">
     <aside className="mf-rail"><Brand /><div className="mf-nav-label">Desk</div><nav className="mf-nav">
       <Link href="/city" className={`mf-nav-link ${active === 'city' ? 'active' : ''}`} data-testid="link-city"><Building2 /><span>City desk</span></Link>
       <Link href="/cases" className={`mf-nav-link ${active === 'cases' ? 'active' : ''}`} data-testid="link-cases"><FileText /><span>Case files</span></Link>
       <Link href="/district/biases" className={`mf-nav-link ${active === 'biases' ? 'active' : ''}`} data-testid="link-biases"><Brain /><span>Bias district</span></Link>
+      <Link href="/district/fallacies" className={`mf-nav-link ${active === 'fallacies' ? 'active' : ''}`} data-testid="link-fallacies"><Scale /><span>Fallacy district</span></Link>
     </nav><div className="mf-rail-note">Late shift<br /><strong>Open investigation</strong></div></aside>
-    <main className="mf-main"><header className="mf-topbar"><div className="mf-breadcrumb"><strong>Mindframe</strong> / {active === 'city' ? 'City desk' : active === 'biases' ? 'Bias district' : 'Case files'}</div><XpBadge /></header>{children}</main>
+    <main className="mf-main"><header className="mf-topbar"><div className="mf-breadcrumb"><strong>Mindframe</strong> / {active === 'city' ? 'City desk' : active === 'biases' ? 'Bias district' : active === 'fallacies' ? 'Fallacy district' : 'Case files'}</div><XpBadge /></header>{children}</main>
   </div>;
 }
 
