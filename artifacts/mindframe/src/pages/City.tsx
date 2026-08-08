@@ -1,5 +1,5 @@
+ import { FileSearch, NotebookPen, Trophy, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
-import { ArrowRight, NotebookPen, Trophy } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { Shell } from '@/components/Shell';
 import DistrictCard from '@/components/DistrictCard';
