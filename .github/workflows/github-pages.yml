@@ -28,11 +28,11 @@ jobs:
         run: pnpm install
 
       - name: Build site
-        working-directory: artifacts/mindframe
+         working-directory: artifacts/mindframe
         env:
-          BASE_PATH: '/'
-          PORT: '4173'
-        run: pnpm --dir artifacts/mindframe run build
+         BASE_PATH: '/'
+        PORT: '4173'
+        run: pnpm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
