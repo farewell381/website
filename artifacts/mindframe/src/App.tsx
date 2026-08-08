@@ -10,6 +10,8 @@ import Biases from '@/pages/Biases';
 import BiasDetail from '@/pages/BiasDetail';
 import Fallacies from '@/pages/Fallacies';
 import FallacyDetail from '@/pages/FallacyDetail';
+import DecisionLab from '@/pages/DecisionLab';
+import DetectiveAcademy from '@/pages/DetectiveAcademy';
 
 const queryClient = new QueryClient();
 
@@ -23,6 +25,8 @@ function Router() {
     <Route path="/district/biases/:id" component={BiasDetail} />
     <Route path="/district/fallacies" component={Fallacies} />
     <Route path="/district/fallacies/:id" component={FallacyDetail} />
+    <Route path="/district/academy" component={DetectiveAcademy} />
+    <Route path="/district/decision" component={DecisionLab} />
     <Route component={NotFound} />
   </Switch>;
 }
