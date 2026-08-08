@@ -17,13 +17,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'pnpm'
+
+      - name: Enable pnpm via Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Build site
         working-directory: artifacts/mindframe
-        run: npm run build
+        env:
+          BASE_PATH: '/'
+          PORT: '4173'
+        run: pnpm --dir artifacts/mindframe run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
