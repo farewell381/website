@@ -168,7 +168,7 @@ export const academyLessons: Lesson[] = [
       {
         id: 'q1',
         question: "What is an 'anchor' in this lesson's sense?",
-        options: ['A piece of physical evidence', 'An early number or estimate that quietly shapes later judgments', 'A type of alibi', 'A senior detective's final ruling'],
+        options: ['A piece of physical evidence', 'An early number or estimate that quietly shapes later judgments', 'A type of alibi', "A senior detective's final ruling"],
         correctIndex: 1,
         explanation: 'Anchoring is when an initial figure — even an arbitrary one — sets the frame for subsequent estimates.',
       },
@@ -188,7 +188,7 @@ export const academyLessons: Lesson[] = [
     teaser: "The easiest example to remember isn't always the most common one.",
     xp: 120,
     dialogue: [
-      { speaker: 'VERA', text: 'Quick — what is more dangerous, this precinct's warehouse district or its finance district?' },
+      { speaker: 'VERA', text: "Quick — what is more dangerous, this precinct's warehouse district or its finance district?" },
       { speaker: 'ROOKIE', text: 'Warehouse district, easily. I can think of three violent cases there this year alone.' },
       { speaker: 'VERA', text: 'Now check the actual numbers with me.' },
       { speaker: 'ROOKIE', text: '...Huh. Finance district’s fraud caseload is triple the warehouse district’s violent caseload.' },
