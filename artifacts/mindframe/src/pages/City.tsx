@@ -6,6 +6,7 @@ import DistrictCard from '@/components/DistrictCard';
 import { cases } from '@/data/cases';
 import { biases } from '@/data/biases';
 import { fallacies } from '@/data/fallacies';
+import { loadDecisionLabProgress } from '@/lib/decisionLabStore';
 
 const loreItems = [
   { id: 'bias', label: 'Bias District', description: 'The Bias District is your evidence archive. Thirty cognitive traps are laid out with detective-context examples so you can spot them before they become case-breaking assumptions.' },
@@ -29,6 +30,8 @@ export default function City() {
   const [, setLocation] = useLocation();
   const unlocked = cases.filter((c) => c.unlocked || completed.includes(c.id)).length;
   const decisionLabUnlocked = completedFallacies.length === fallacies.length;
+  const decisionLabProgress = loadDecisionLabProgress();
+  const analyzerUnlocked = decisionLabProgress.solvedToolIds.length >= 3;
   const activeLoreItem = loreItems.find((item) => item.id === activeLore)!;
 
   const openDistrict = (path: string) => {
@@ -80,7 +83,16 @@ export default function City() {
       )}
     </div>
     <div className="mf-districts">
-      <div className="mf-district mf-district-locked"><FileSearch /><span>District 06 / Locked</span><h3>Argument Analyzer</h3><p>Got a real argument you're stuck on — an email, a debate, a headline? Drop it in and see what's actually wrong with it.</p><small className="mf-district-unlock">Locked. Complete Decision Lab to unlock.</small></div>
+      {analyzerUnlocked ? (
+        <DistrictCard
+          districtId="argument-analyzer"
+          title="District 06"
+          subtitle="Got a real argument you're stuck on — an email, a debate, a headline? Drop it in and see what's actually wrong with it."
+          onClick={() => openDistrict('/district/analyzer')}
+        />
+      ) : (
+        <div className="mf-district mf-district-locked"><FileSearch /><span>District 06 / Locked</span><h3>Argument Analyzer</h3><p>Got a real argument you're stuck on — an email, a debate, a headline? Drop it in and see what's actually wrong with it.</p><small className="mf-district-unlock">Locked. Master 3 tools in the Decision Lab to unlock.</small></div>
+      )}
       <div className="mf-district mf-district-locked"><NotebookPen /><span>District 07 / Locked</span><h3>Mind Palace</h3><p>Knowing a bias once isn't the same as remembering it when it matters. This is how you make it stick.</p><small className="mf-district-unlock">Locked. Complete Argument Analyzer to unlock.</small></div>
       <div className="mf-district mf-district-locked"><Trophy /><span>District 08 / Locked</span><h3>Achievements</h3><p>Every case cracked is a bias you won't fall for again. Track how far you've come.</p><small className="mf-district-unlock">Locked. Complete Mind Palace to unlock.</small></div>
     </div>

@@ -12,6 +12,7 @@ import Fallacies from '@/pages/Fallacies';
 import FallacyDetail from '@/pages/FallacyDetail';
 import DecisionLab from '@/pages/DecisionLab';
 import DetectiveAcademy from '@/pages/DetectiveAcademy';
+import ArgumentAnalyzer from '@/pages/ArgumentAnalyzer';
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ function Router() {
     <Route path="/district/fallacies/:id" component={FallacyDetail} />
     <Route path="/district/academy" component={DetectiveAcademy} />
     <Route path="/district/decision" component={DecisionLab} />
+    <Route path="/district/analyzer" component={ArgumentAnalyzer} />
     <Route component={NotFound} />
   </Switch>;
 }

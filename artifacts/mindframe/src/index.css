@@ -39,3 +39,27 @@
 .mf-dossier-details li{margin-bottom:10px;font-size:13px;line-height:1.8}
 @media(max-width:900px){.mf-lore-tabs{grid-template-columns:repeat(2,minmax(140px,1fr))}}
 @media(max-width:700px){.mf-briefing-card,.mf-lore-copy,.mf-dossier-card{padding:20px}.mf-lore-tabs{grid-template-columns:1fr}.mf-dossier-card{margin-top:18px}}
+
+/* Argument Analyzer */
+.mf-analyzer-input{padding:29px}
+.mf-analyzer-input h2{margin:18px 0 11px;color:var(--paper);font:500 31px/1 var(--app-font-serif)}
+.mf-analyzer-textarea{width:100%;min-height:140px;padding:16px 18px;margin:18px 0;color:var(--paper);background:rgba(11,15,20,.6);border:1px solid var(--line);border-radius:3px;resize:vertical;font:14px/1.65 var(--app-font-sans);outline:none;transition:border-color .2s}
+.mf-analyzer-textarea:focus{border-color:rgba(213,162,75,.5)}
+.mf-analyzer-textarea::placeholder{color:#70695e;font:12px/1.65 var(--app-font-mono)}
+.mf-analyzer-actions{display:flex;gap:10px;flex-wrap:wrap}
+.mf-analyzer-samples{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.mf-analyzer-samples .mf-eyebrow{display:block;margin-bottom:10px}
+.mf-analyzer-sample-list{display:grid;gap:8px}
+.mf-analyzer-results{padding:29px}
+.mf-analyzer-results h2{margin:17px 0 11px;color:var(--paper);font:500 28px/1 var(--app-font-serif)}
+.mf-analyzer-text{padding:22px;background:rgba(11,15,20,.55);border:1px solid var(--line);border-radius:3px;font:15px/1.85 var(--app-font-serif);color:#c9b99d}
+.mf-analyzer-highlight{background:rgba(213,162,75,.22);border-bottom:2px solid rgba(213,162,75,.6);color:var(--paper);cursor:pointer;padding:1px 3px;border-radius:2px;transition:background .2s,border-color .2s}
+.mf-analyzer-highlight:hover{background:rgba(213,162,75,.35)}
+.mf-analyzer-highlight.active{background:rgba(213,162,75,.4);border-color:var(--amber)}
+.mf-analyzer-found-list{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+.mf-analyzer-found-list .mf-eyebrow{display:block;margin-bottom:10px}
+.mf-analyzer-tooltip{padding:29px}
+.mf-analyzer-tooltip h2{margin:17px 0 11px;color:var(--paper);font:500 26px/1.1 var(--app-font-serif)}
+.mf-analyzer-tooltip .mf-link{margin-top:14px}
+@media(max-width:900px){.mf-analyzer-textarea{min-height:120px}}
+@media(max-width:700px){.mf-analyzer-text{font-size:14px;padding:18px}.mf-analyzer-input,.mf-analyzer-results,.mf-analyzer-tooltip{padding:22px}}
