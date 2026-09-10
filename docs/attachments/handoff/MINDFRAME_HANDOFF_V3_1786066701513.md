@@ -1,4 +1,4 @@
-﻿# MINDFRAME — Project Status & Handoff (V3)
+# MINDFRAME — Project Status & Handoff (V3)
 
 ## Completed Tasks
 - ✅ Phase 1 — Core loop (Landing, City Hub, Case List, Investigation Board, Scoring)
